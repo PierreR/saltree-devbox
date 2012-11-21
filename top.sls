@@ -1,0 +1,3 @@
+local:
+  '*vbox*':
+    - devbox
