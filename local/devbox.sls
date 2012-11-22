@@ -32,3 +32,5 @@ vagrant:
     - user: vagrant
     - group: vagrant
     - source: salt://home
+    - require:
+      -group : vagrant
