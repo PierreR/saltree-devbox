@@ -33,4 +33,4 @@ vagrant:
     - group: vagrant
     - source: salt://home
     - require:
-      -group : vagrant
+      - group: vagrant
