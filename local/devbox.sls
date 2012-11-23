@@ -21,7 +21,7 @@ vagrant:
     - present
   user.present:
     - gid_from_name: True
-    - password: vagrant
+    - password: $1$URNNwhJc$XEFruDlNvM3DIIoeXc92H/
     - shell: /bin/zsh
     - groups:
       - adm
