@@ -10,7 +10,7 @@ install_common_pkg:
         - ghc
         - zsh
         - xmonad-contrib
-        - xmobar
+        - cabal-install
 # Sync time with NTP
 ntp:
   pkg:
