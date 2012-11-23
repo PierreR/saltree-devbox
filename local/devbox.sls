@@ -11,6 +11,11 @@ install_common_pkg:
         - zsh
         - xmonad-contrib
         - cabal-install
+# virtualbox-guest-utils comes 'builtin' with the base box 
+vboxservice:
+  service:
+    - enabled
+    - running
 # Sync time with NTP
 ntp:
   pkg:
