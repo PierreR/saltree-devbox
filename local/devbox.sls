@@ -3,12 +3,14 @@ install_common_pkg:
   pkg.installed:
     - names:
         - vim
+        - emacs
         - sudo
         - xorg-server
         - xorg-xinit
         - ghc
         - zsh
         - xmonad-contrib
+        - xmobar
 # Sync time with NTP
 ntp:
   pkg:
