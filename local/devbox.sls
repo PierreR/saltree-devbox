@@ -2,6 +2,7 @@
 install_common_pkg:
   pkg.installed:
     - names:
+        - git
         - vim
         - emacs
         - sudo
