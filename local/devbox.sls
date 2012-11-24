@@ -15,6 +15,7 @@ install_common_pkg:
 vboxservice:
   service:
     - enabled
+  service:
     - running
 # Sync time with NTP
 ntp:
