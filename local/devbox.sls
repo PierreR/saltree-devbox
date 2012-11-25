@@ -14,6 +14,7 @@ install_common_pkg:
         - zsh
         - xmonad-contrib
         - cabal-install
+        - ttf-bitstream-vera
 # virtualbox-guest-utils comes 'builtin' with the base box 
 vboxservice:
   service:
