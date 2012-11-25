@@ -15,6 +15,7 @@ install_common_pkg:
         - xmonad-contrib
         - cabal-install
         - ttf-bitstream-vera
+        - xorg-xsetroot
 # virtualbox-guest-utils comes 'builtin' with the base box 
 vboxservice:
   service:
