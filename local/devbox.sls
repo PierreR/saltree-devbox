@@ -5,6 +5,7 @@ install_common_pkg:
         - git
         - vim
         - emacs
+        - emacs-haskell-mode
         - sudo
         - xorg-server
         - xorg-xinit
