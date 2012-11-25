@@ -9,6 +9,8 @@ install_common_pkg:
         - xorg-server
         - xorg-xinit
         - ghc
+        - haskell-parsec
+        - haskell-stm
         - zsh
         - xmonad-contrib
         - cabal-install
