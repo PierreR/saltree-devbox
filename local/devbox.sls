@@ -42,7 +42,7 @@ vagrant:
 # Configure the default vagrant user
 /home/vagrant:
   file.recurse:
-    - clean: True
+    - clean: False
     - user: vagrant
     - group: vagrant
     - source: salt://home
