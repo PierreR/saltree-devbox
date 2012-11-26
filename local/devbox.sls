@@ -17,6 +17,7 @@ install_common_pkg:
         - cabal-install
         - ttf-bitstream-vera
         - xorg-xsetroot
+        - feh
 # virtualbox-guest-utils comes 'builtin' with the base box 
 vboxservice:
   service:
