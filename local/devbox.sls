@@ -2,22 +2,23 @@
 install_common_pkg:
   pkg.installed:
     - names:
-        - git
-        - vim
+        - cabal-install
         - emacs
         - emacs-haskell-mode
-        - sudo
-        - xorg-server
-        - xorg-xinit
+        - feh
         - ghc
+        - git
+        - gnome-terminal
         - haskell-parsec
         - haskell-stm
-        - zsh
-        - xmonad-contrib
-        - cabal-install
+        - sudo
         - ttf-bitstream-vera
+        - vim
+        - xmonad-contrib
+        - xorg-xinit
         - xorg-xsetroot
-        - feh
+        - xorg-server
+        - zsh
 # virtualbox-guest-utils comes 'builtin' with the base box 
 vboxservice:
   service:
