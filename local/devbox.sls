@@ -11,6 +11,7 @@ install_common_pkg:
         - gnome-terminal
         - haskell-parsec
         - haskell-stm
+        - ruby
         - sudo
         - ttf-bitstream-vera
         - vim
@@ -42,6 +43,15 @@ vagrant:
     - groups:
       - adm
       - vboxsf
+# Install Puppet circus
+puppet:
+  gem.installed:
+    - names:
+      - puppet
+      - puppet-lint
+    - runas: vagrant
+    - require: 
+      - pkg: ruby
 # Configure the default vagrant user
 /home/vagrant:
   file.recurse:
