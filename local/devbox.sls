@@ -41,6 +41,7 @@ vagrant:
     - shell: /bin/zsh
     - groups:
       - adm
+      - vboxsf
 # Configure the default vagrant user
 /home/vagrant:
   file.recurse:
