@@ -3,6 +3,7 @@ install_common_pkg:
   pkg.installed:
     - names:
         - cabal-install
+        - chromium
         - emacs
         - feh
         - ghc
