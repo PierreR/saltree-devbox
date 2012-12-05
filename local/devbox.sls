@@ -59,5 +59,4 @@ puppet:
     - group: vagrant
     - source: salt://home
     - require:
-      - group: vagrant
       - user: vagrant
