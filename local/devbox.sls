@@ -60,3 +60,4 @@ puppet:
     - source: salt://home
     - require:
       - group: vagrant
+      - user: vagrant
