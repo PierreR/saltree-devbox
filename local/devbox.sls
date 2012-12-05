@@ -14,6 +14,7 @@ install_common_pkg:
         - sudo
         - ttf-bitstream-vera
         - vim
+        - xmobar
         - xmonad-contrib
         - xorg-xinit
         - xorg-xsetroot
