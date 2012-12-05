@@ -4,7 +4,6 @@ install_common_pkg:
     - names:
         - cabal-install
         - emacs
-        - emacs-haskell-mode
         - feh
         - ghc
         - git
