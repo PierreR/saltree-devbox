@@ -9,6 +9,9 @@ install_common_pkg:
         - ghc
         - git
         - gnome-terminal
+        - haddock
+        - haskell-quickcheck
+        - haskell-network
         - haskell-parsec
         - haskell-stm
         - ruby
