@@ -19,7 +19,8 @@ install_common_pkg:
         - ttf-bitstream-vera
         - vim
         - xmobar
-        - xmonad-contrib
+        - haskell-xmonad-contrib
+        - haskell-warp # for Hoogle: will install many deps
         - xorg-xinit
         - xorg-xsetroot
         - xorg-server
@@ -65,3 +66,9 @@ puppet:
     - source: salt://home
     - require:
       - user: vagrant
+/etc/pacman.conf:
+  file.managed:
+    - source: salt://root/etc/pacman.conf
+    - user: root
+    - group: root
+    - mode: 644
