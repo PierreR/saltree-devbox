@@ -14,6 +14,7 @@ install_common_pkg:
         - haskell-network
         - haskell-parsec
         - haskell-stm
+        - htop
         - net-tools
         - ruby
         - sudo
