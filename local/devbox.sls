@@ -2,6 +2,7 @@
 install_common_pkg:
   pkg.installed:
     - names:
+        - ack
         - cabal-install
         - chromium
         - emacs
