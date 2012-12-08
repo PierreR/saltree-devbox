@@ -3,6 +3,8 @@ install_common_pkg:
   pkg.installed:
     - names:
         - ack
+        - aspell-en
+        - aspell-fr
         - cabal-install
         - chromium
         - emacs
