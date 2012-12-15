@@ -1,7 +1,7 @@
 # Install common packages
 install_common_pkg:
   pkg.installed:
-    - names:
+    - pkgs:
         - ack
         - aspell-en
         - aspell-fr
@@ -12,11 +12,13 @@ install_common_pkg:
         - ghc
         - git
         - gnome-terminal
-        - haddock
+        - haskell-haddock
         - haskell-quickcheck
         - haskell-network
         - haskell-parsec
         - haskell-stm
+        - haskell-xmonad-contrib
+        - haskell-warp # for Hoogle: will install many deps
         - htop
         - net-tools
         - ruby
@@ -24,8 +26,6 @@ install_common_pkg:
         - ttf-bitstream-vera
         - vim
         - xmobar
-        - haskell-xmonad-contrib
-        - haskell-warp # for Hoogle: will install many deps
         - xorg-xinit
         - xorg-xsetroot
         - xorg-server
