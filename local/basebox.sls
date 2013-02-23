@@ -5,27 +5,12 @@ install_common_pkg:
         - ack
         - aspell-en
         - aspell-fr
-        - cabal-install
-        - chromium
-        - emacs
-        - eclipse
         - feh
         - ghc
         - git
         - gnome-terminal
-        - haskell-buildwrapper
-        - haskell-haddock
-        - haskell-hlint
-        - haskell-quickcheck
-        - haskell-network
-        - haskell-parsec
-        - haskell-scion-browser
-        - haskell-stm
-        - haskell-warp # for Hoogle: will install many deps
         - htop
         - net-tools
-        - ruby
-        - spectrwm
         - sudo
         - ttf-bitstream-vera
         - vim
@@ -33,9 +18,8 @@ install_common_pkg:
         - xorg-xinit
         - xorg-xsetroot
         - xorg-server
-        - zathura
         - zsh
-# virtualbox-guest-utils comes 'builtin' with the base box 
+# virtualbox-guest-utils comes 'builtin' with the base box
 vboxservice:
   service:
     - enabled
@@ -58,15 +42,6 @@ vagrant:
     - groups:
       - adm
       - vboxsf
-# Install Puppet circus
-puppet:
-  gem.installed:
-    - names:
-      - puppet
-      - puppet-lint
-    - runas: vagrant
-    - require: 
-      - pkg: ruby
 # Configure the default vagrant user
 /home/vagrant:
   file.recurse:
@@ -76,9 +51,3 @@ puppet:
     - source: salt://home
     - require:
       - user: vagrant
-/etc/pacman.conf:
-  file.managed:
-    - source: salt://root/etc/pacman.conf
-    - user: root
-    - group: root
-    - mode: 644
