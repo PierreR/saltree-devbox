@@ -11,6 +11,7 @@ install_common_pkg:
         - gnome-terminal
         - htop
         - net-tools
+        - spectrwm
         - sudo
         - ttf-bitstream-vera
         - vim
