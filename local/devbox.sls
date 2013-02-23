@@ -21,11 +21,11 @@ install_common_pkg:
         - haskell-parsec
         - haskell-scion-browser
         - haskell-stm
+        - haskell-xmonad-contrib 
         - haskell-warp # for Hoogle: will install many deps
         - htop
         - net-tools
         - ruby
-        - spectrwm
         - sudo
         - ttf-bitstream-vera
         - vim
