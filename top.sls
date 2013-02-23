@@ -1,5 +1,5 @@
 local:
   '*basevbox'
     - basebox
-  '*vbox*':
+  '*vbox':
     - devbox
