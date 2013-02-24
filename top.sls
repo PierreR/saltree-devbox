@@ -1,5 +1,7 @@
 local:
-  '*-basevbox'
-    - basebox
-  '*-vbox':
-    - devbox
+  '*-basedevvbox':
+    - box.base
+  '*-devvbox':
+    - box.dev
+  '*-cloud9vbox':
+    - box.cloud9

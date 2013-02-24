@@ -11,11 +11,11 @@ install_common_pkg:
         - gnome-terminal
         - htop
         - net-tools
-        - spectrwm
         - sudo
         - ttf-bitstream-vera
         - vim
         - xmobar
+        - xmonad-contrib
         - xorg-xinit
         - xorg-xsetroot
         - xorg-server
