@@ -1,25 +1,8 @@
 # Install common packages
-install_common_pkg:
-  pkg.installed:
-    - pkgs:
-        - ack
-        - aspell-en
-        - aspell-fr
-        - feh
-        - ghc
-        - git
-        - gnome-terminal
-        - htop
-        - net-tools
-        - sudo
-        - ttf-bitstream-vera
-        - vim
-        - xmobar
-        - xmonad-contrib
-        - xorg-xinit
-        - xorg-xsetroot
-        - xorg-server
-        - zsh
+include:
+ - pkg.base
+ - pkg.xmonad
+
 # virtualbox-guest-utils comes 'builtin' with the base box
 vboxservice:
   service:
