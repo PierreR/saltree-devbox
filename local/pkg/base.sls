@@ -9,6 +9,7 @@ common:
         - gnome-terminal
         - htop
         - net-tools
+        - reflector
         - sudo
         - ttf-bitstream-vera
         - ttf-ubuntu-font-family
