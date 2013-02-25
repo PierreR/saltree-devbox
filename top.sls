@@ -1,3 +1,6 @@
+base:
+  '*':
+    - gitlab
 local:
   '*-basedevvbox':
     - box.base
