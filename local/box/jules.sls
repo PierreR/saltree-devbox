@@ -18,20 +18,22 @@ user_git:
     - home: /home/git
     - fullname: GitLab
 
-gitlab_clone
+gitlab_clone:
   git.latest:
     - name: https://github.com/gitlabhq/gitlab-shell.git
     - target: /home/git/gitlab-shell
     - require: user_git
 
-bin/install
-  cmd.run:
-     - require: gitlab_clone 
-     - cwd: /home/git/gitlab-shell 
-     - user: git
+
+cmd.run:
+  - name: bin/install
+  - require: gitlab_clone 
+  - cwd: /home/git/gitlab-shell 
+  - user: git
   
-cp config.yml.example config.yml
-  cmd.run:
-    - require: gitlab_clone
-    - cwd: /home/git/gitlab-shell
-    - user: git
+
+cmd.run:
+  - name: cp config.yml.example config.yml
+  - require: gitlab_clone
+  - cwd: /home/git/gitlab-shell
+  - user: git
