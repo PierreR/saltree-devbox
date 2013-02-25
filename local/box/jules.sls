@@ -7,6 +7,9 @@ python2:
 ruby:
   pkg.installed
 
+redis:
+  pkg.installed
+
 bundler:
   gem.installed:
     - runas: root
