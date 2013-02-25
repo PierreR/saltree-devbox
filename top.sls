@@ -3,5 +3,5 @@ local:
     - box.base
   '*-devvbox':
     - box.dev
-  '*-cloud9vbox':
-    - box.cloud9
+  '*-julesvbox':
+    - box.jules
