@@ -55,31 +55,31 @@ mkdir /home/git/gitlab-satellites:
   cmd.run:
     - user: git
     - require:
-      - git: lab_user
+      - user: lab_user
 
 mkdir tmp/pids/ :
   cmd.run:
     - user: git
     - require:
-      - git: lab_user
+      - user: lab_user
 
 cp unicorn.rb.example unicorn.rb:
   cmd.run:
     - user: git
     - cwd: /home/git/gitlab/config
     - require:
-      - git: lab_user
+      - user: lab_user
 
 cp database.yml.postgresql database.mysql:
   cmd.run:
     - user: git
     - cwd: /home/git/gitlab/config
     - require:
-      - git: lab_user
+      - user: lab_user
 
 bundle install --deployment --without development test postgres:
   cmd.run:
     - user: git
     - cwd: /home/git/gitlab
     - require:
-      - git: lab_user
+      - user: lab_user
