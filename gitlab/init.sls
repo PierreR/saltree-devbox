@@ -6,7 +6,6 @@ charlock_holmes:
 lab_user:
   user.present:
     - name: git
-    - shell: /sbin/nologin
     - fullname: GitLab
 
 lab_shell_clone:
