@@ -9,7 +9,7 @@ git:
     - gid: git
     - require:
       - user: rvm
-      - rvm: ruby-1.9.3
+      - rvm: ruby-1.9.3-p327
 
 # Responsible for installing Ruby (not gems)
 rvm:
@@ -21,7 +21,7 @@ rvm:
       - group: rvm
 
 # Install Ruby with the rvm user
-ruby-1.9.3:
+ruby-1.9.3-p327 :
   rvm.installed:
     - default: True
     - runas: rvm
@@ -31,7 +31,7 @@ ruby-1.9.3:
 # Install gems with the git user (it should automatically use rvm under the carpet)
 charlock_holmes:
   gem.installed:
-    - ruby: ruby-1.9.3
+    - ruby: ruby-1.9.3-p327
     - version: "0.6.9"
     - runas: git
     - require:
@@ -39,7 +39,7 @@ charlock_holmes:
 
 bundler:
   gem.installed:
-    - ruby: ruby-1.9.3
+    - ruby: ruby-1.9.3-p327
     - runas: git
     - require:
       - user: git
