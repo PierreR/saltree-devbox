@@ -5,6 +5,7 @@ charlock_holmes:
 
 lab_user:
   user.present:
+    - shell: /bin/bash
     - name: git
     - fullname: GitLab
 
@@ -58,6 +59,7 @@ mkdir /home/git/gitlab-satellites:
 
 mkdir tmp/pids/ :
   cmd.run:
+    - cwd: /home/git/gitlab
     - user: git
     - require:
       - user: lab_user
