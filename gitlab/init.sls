@@ -1,8 +1,9 @@
 git:
+  group:
+    - present
   user.present:
-    - shell: /bin/bash
     - fullname: GitLab
-    - home: /home/git
+    - gid: git
     - require:
       - user: rvm
       - rvm: ruby-1.9.3
@@ -13,14 +14,12 @@ rvm:
     - present
   user.present:
     - gid: rvm
-    - home: /home/rvm
     - require:
       - group: rvm
 
 # Install Ruby with the rvm user
 ruby-1.9.3:
   rvm.installed:
-    - order: 1
     - default: True
     - runas: rvm
     - require:
@@ -28,13 +27,13 @@ ruby-1.9.3:
 
 # Install gems with the git user (it should automatically use rvm under the carpet)
 charlock_holmes:
-  gem.install:
+  gem.installed:
     - runas: git
     - require:
       - user: git
 
 bundler:
-  gem.install:
+  gem.installed:
     - version: 0.6.9
     - runas: git
     - require:
@@ -66,7 +65,6 @@ lab_shell_install:
     - cwd: /home/git/gitlab-shell
     - user: git
     - require:
-      - pkg: ruby
       - gem: bundler
       - git: lab_shell_clone
 
@@ -97,6 +95,7 @@ lab_clone:
 /home/git/gitlab-satellites:
   file.directory:
     - user: git
+    - group: git
     - makedirs: True
     - require:
       - user: git
