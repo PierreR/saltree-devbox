@@ -63,15 +63,6 @@ lab_shell_clone:
     - require:
       - user: git
 
-lab_shell_install:
-  cmd.run:
-    - name: bin/install
-    - cwd: /home/git/gitlab-shell
-    - user: git
-    - require:
-      - gem: bundler
-      - git: lab_shell_clone
-
 lab_shell_config:
   cmd.run:
     - name: cp config.yml.example config.yml
@@ -80,11 +71,20 @@ lab_shell_config:
     - require:
       - git: lab_shell_clone
 
+lab_shell_install:
+  cmd.run:
+    - name: bin/install
+    - cwd: /home/git/gitlab-shell
+    - user: git
+    - require:
+      - gem: bundler
+      - git: lab_shell_config
+
 lab_clone:
   git.latest:
     - name: https://github.com/gitlabhq/gitlabhq.git
     - target: /home/git/gitlab
-    - rev: 5-0-stable
+    # does not exist yet:- rev: 5-0-stable
     - runas: git
     - require:
       - user: git
@@ -116,11 +116,11 @@ cp unicorn.rb.example unicorn.rb:
     - user: git
     - cwd: /home/git/gitlab/config
     - require:
-      - user: git
+      - git: lab_clone
 
 cp database.yml.postgresql database.mysql:
   cmd.run:
     - user: git
     - cwd: /home/git/gitlab/config
     - require:
-      - user: git
+      - git: lab_clone
