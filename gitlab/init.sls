@@ -2,34 +2,55 @@ git:
   user.present:
     - shell: /bin/bash
     - fullname: GitLab
+    - home: /home/git
+    - require:
+      - user: rvm
+      - rvm: ruby-1.9.3
 
+# Responsible for installing Ruby (not gems)
+rvm:
+  group:
+    - present
+  user.present:
+    - gid: rvm
+    - home: /home/rvm
+    - require:
+      - group: rvm
+
+# Install Ruby with the rvm user
 ruby-1.9.3:
   rvm.installed:
+    - order: 1
     - default: True
+    - runas: rvm
+    - require:
+      - user: rvm
+
+# Install gems with the git user (it should automatically use rvm under the carpet)
+charlock_holmes:
+  gem.install:
     - runas: git
     - require:
       - user: git
+
+bundler:
+  gem.install:
+    - version: 0.6.9
+    - runas: git
+    - require:
+      - user: git
+
+bundle install --deployment --without development test postgres:
+  cmd.run:
+    - user: git
+    - cwd: /home/git/gitlab
+    - require:
+      - gem: bundler
 
 /home/git/.bash.env:
   file.managed:
     - source: salt://gitlab/bash.env
     - user: git
-    - order: 1
-    - require:
-      - user: git
-
-bundler:
-  gem.installed:
-    - runas: git
-    - require:
-      - rvm: ruby-1.9.3
-
-charlock_holmes:
-  gem.installed:
-    - version: 0.6.9
-    - runas: git
-    - require:
-      - rvm: ruby-1.9.3
 
 lab_shell_clone:
   git.latest:
@@ -100,10 +121,3 @@ cp database.yml.postgresql database.mysql:
     - cwd: /home/git/gitlab/config
     - require:
       - user: git
-
-bundle install --deployment --without development test postgres:
-  cmd.run:
-    - user: git
-    - cwd: /home/git/gitlab
-    - require:
-      - rvm: ruby-1.9.3
