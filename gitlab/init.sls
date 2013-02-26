@@ -4,6 +4,12 @@ lab_user:
     - name: git
     - fullname: GitLab
 
+ruby-1.9.3:
+  rvm.installed:
+    - runas: git
+    - require:
+      - user: lab_user
+
 /home/git/.bash.env:
   file.managed:
     - source: salt://gitlab/bash.env
@@ -72,10 +78,10 @@ lab_clone:
     - require:
       - user: lab_user
 
-mkdir tmp/pids/ :
-  cmd.run:
-    - cwd: /home/git/gitlab
+/home/git/gitlab/tmp/pids:
+  file.directory:
     - user: git
+    - makedirs: True
     - require:
       - user: lab_user
 
