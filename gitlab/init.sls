@@ -22,7 +22,7 @@ bundler:
   gem.installed:
     - runas: git
     - require:
-      - user: lab_user
+      - rvm: ruby-1.9.3
 
 charlock_holmes:
   gem.installed:
@@ -104,4 +104,4 @@ bundle install --deployment --without development test postgres:
     - user: git
     - cwd: /home/git/gitlab
     - require:
-      - user: lab_user
+      - rvm: ruby-1.9.3
