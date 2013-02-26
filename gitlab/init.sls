@@ -51,9 +51,10 @@ lab_clone:
     - require:
       - git: lab_clone
 
-mkdir /home/git/gitlab-satellites:
-  cmd.run:
+/home/git/gitlab-satellites:
+  file.directory:
     - user: git
+    - makedirs: True
     - require:
       - user: lab_user
 
