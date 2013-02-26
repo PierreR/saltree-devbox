@@ -1,3 +1,6 @@
+redis:
+  pkg.installed
+
 git:
   group:
     - present
@@ -45,6 +48,7 @@ bundle install --deployment --without development test postgres:
     - cwd: /home/git/gitlab
     - require:
       - gem: bundler
+      - gem: charlock_holmes
 
 /home/git/.bash.env:
   file.managed:

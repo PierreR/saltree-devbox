@@ -1,13 +1,7 @@
 include:
   - box.base
+  - pkg.python2
+  - pkg.ruby
 
-python2:
+nginx:
   pkg.installed
-
-ruby:
-  pkg.installed
-
-redis:
-  pkg.installed
-
-
