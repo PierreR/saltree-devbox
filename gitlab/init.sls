@@ -31,6 +31,7 @@ ruby-1.9.3:
 # Install gems with the git user (it should automatically use rvm under the carpet)
 charlock_holmes:
   gem.installed:
+    - ruby: ruby-1.9.3
     - version: "0.6.9"
     - runas: git
     - require:
@@ -38,6 +39,7 @@ charlock_holmes:
 
 bundler:
   gem.installed:
+    - ruby: ruby-1.9.3
     - runas: git
     - require:
       - user: git
