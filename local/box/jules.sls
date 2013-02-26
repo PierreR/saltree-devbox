@@ -10,6 +10,4 @@ ruby:
 redis:
   pkg.installed
 
-bundler:
-  gem.installed:
-    - runas: root
+

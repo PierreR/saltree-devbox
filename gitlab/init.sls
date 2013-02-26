@@ -1,13 +1,27 @@
-charlock_holmes:
-  gem.installed:
-    - version: 0.6.9
-    - runas: root
-
 lab_user:
   user.present:
     - shell: /bin/bash
     - name: git
     - fullname: GitLab
+
+/home/git/.bash.env:
+  file.managed:
+    - source: salt://gitlab/bash.env
+    - user: git
+    - order: 1
+    - require:
+      - user: lab_user
+
+bundler:
+  gem.installed:
+    - runas: git
+    - require:
+      - user: lab_user
+
+charlock_holmes:
+  gem.installed:
+    - version: 0.6.9
+    - runas: git
 
 lab_shell_clone:
   git.latest:
