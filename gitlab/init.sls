@@ -51,7 +51,7 @@ gitlab_clone:
 
 /home/git/gitlab/config/gitlab.yml:
   file.managed:
-    - source: salt://gitlab/config.yml
+    - source: salt://gitlab/gitlab.yml
     - user: git
     - require:
       - git: gitlab_clone
