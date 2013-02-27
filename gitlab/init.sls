@@ -66,19 +66,19 @@ gitlab_clone:
 
 gitlab_config:
   file.directory:
-    - name: /home/git/gitlab/tmp/pids:
+    - name: /home/git/gitlab/tmp/pids
     - user: git
     - makedirs: True
     - require:
       - git: gitlab_clone
   cmd.run:
-    - name: cp unicorn.rb.example unicorn.rb:
+    - name: cp unicorn.rb.example unicorn.rb
     - user: git
     - cwd: /home/git/gitlab/config
     - require:
       - git: gitlab_clone
   cmd.run:
-    - name: cp database.yml.postgresql database.postgres:
+    - name: cp database.yml.postgresql database.postgres
     - user: git
     - cwd: /home/git/gitlab/config
     - require:
