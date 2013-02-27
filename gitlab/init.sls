@@ -1,3 +1,6 @@
+include:
+  - gitlab.ruby
+
 redis:
   pkg.installed
 
@@ -10,8 +13,8 @@ git:
     - require:
       - group: git
   file.managed:
-    - name: /home/git/.bash.env
-    - source: salt://gitlab/bash.env
+    - name: /home/git/.bash_rc
+    - source: salt://gitlab/bash_rc
     - user: git
 
 
