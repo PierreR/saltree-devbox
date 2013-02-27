@@ -1,6 +1,3 @@
-include:
-  - gitlab.ruby
-
 redis:
   pkg.installed
 
