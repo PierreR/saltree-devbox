@@ -1,3 +1,6 @@
+include:
+  - gitlab.ruby
+
 redis:
   pkg.installed
 
@@ -10,52 +13,19 @@ git:
     - require:
       - user: rvm
       - rvm: ruby-1.9.3-p327
-
-# Responsible for installing Ruby (not gems)
-rvm:
-  group:
-    - present
-  user.present:
-    - gid: rvm
-    - require:
-      - group: rvm
-
-# Install Ruby with the rvm user
-ruby-1.9.3-p327 :
-  rvm.installed:
-    - default: True
-    - runas: rvm
-    - require:
-      - user: rvm
-
-# Install gems with the git user (it should automatically use rvm under the carpet)
-charlock_holmes:
-  gem.installed:
-    - ruby: ruby-1.9.3-p327
-    - version: "0.6.9"
-    - runas: git
-    - require:
-      - user: git
-
-bundler:
-  gem.installed:
-    - ruby: ruby-1.9.3-p327
-    - runas: git
-    - require:
-      - user: git
+  file.managed:
+    - name: /home/git/.bash.env:
+    - source: salt://gitlab/bash.env
+    - user: git
 
 bundle install --deployment --without development test postgres:
   cmd.run:
     - user: git
     - cwd: /home/git/gitlab
     - require:
+      - user: git
       - gem: bundler
       - gem: charlock_holmes
-
-/home/git/.bash.env:
-  file.managed:
-    - source: salt://gitlab/bash.env
-    - user: git
 
 lab_shell_clone:
   git.latest:
