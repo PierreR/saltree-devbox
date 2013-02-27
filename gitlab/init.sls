@@ -10,9 +10,6 @@ git:
   user.present:
     - fullname: GitLab
     - gid: git
-    - require:
-      - user: rvm
-      - rvm: ruby-1.9.3
   file.managed:
     - name: /home/git/.bash.env
     - source: salt://gitlab/bash.env
@@ -49,7 +46,6 @@ lab_shell_install:
     - cwd: /home/git/gitlab-shell
     - user: git
     - require:
-      - gem: bundler
       - cmd: lab_shell_config
 
 lab_clone:
