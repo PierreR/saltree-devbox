@@ -12,7 +12,7 @@ git:
     - fullname: GitLab
     - gid: git
     - require:
-      group: git
+      - group: git
   file.managed:
     - name: /home/git/.bash.env
     - source: salt://gitlab/bash.env
