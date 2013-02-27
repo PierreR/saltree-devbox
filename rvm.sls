@@ -15,16 +15,3 @@ ruby-1.9.3:
     - require:
       - user: rvm
 
-global:
-  rvm.gemset_present:
-    - ruby: ruby-1.9.3
-    - runas: rvm
-    - require:
-      - rvm: ruby-1.9.3
-
-bundler:
-  gem.installed:
-    - ruby: ruby-1.9.3@global
-    - runas: rvm
-    - require:
-      - rvm: gitlab_ruby

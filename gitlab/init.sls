@@ -1,5 +1,6 @@
 include:
   - gitlab.ruby
+  - rvm
 
 redis:
   pkg.installed
@@ -15,6 +16,29 @@ git:
     - source: salt://gitlab/bash.env
     - user: git
 
+gitlab:
+  rvm.gemset_present:
+    - ruby: ruby-1.9.3
+    - runas: git
+    - require:
+      - rvm: ruby-1.9.3
+      - user: git
+
+# Install gems with the rvm ruby version specified
+charlock_holmes:
+  gem.installed:
+    - ruby: ruby-1.9.3@gitlab
+    - version: "0.6.9"
+    - runas: git
+    - require:
+      - rvm: gitlab
+
+bundler:
+  gem.installed:
+    - ruby: ruby-1.9.3@gitlab
+    - runas: git
+    - require:
+      - rvm: gitlab
 
 gitlab_shellclone:
   git.latest:
