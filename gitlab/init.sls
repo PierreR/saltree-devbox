@@ -12,7 +12,7 @@ git:
     - gid: git
     - require:
       - user: rvm
-      - rvm: ruby-1.9.3-p327
+      - rvm: ruby-1.9.3
   file.managed:
     - name: /home/git/.bash.env
     - source: salt://gitlab/bash.env
@@ -50,7 +50,7 @@ lab_shell_install:
     - user: git
     - require:
       - gem: bundler
-      - git: lab_shell_config
+      - cmd: lab_shell_config
 
 lab_clone:
   git.latest:
