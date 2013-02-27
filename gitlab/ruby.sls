@@ -1,15 +1,8 @@
-# Rubies are installed by rvm
-# Gems are installed by rvm unless you use gemset
-rvm:
-  group:
-    - present
-  user.present:
-    - gid: rvm
-    - require:
-      - group: rvm
+include:
+  - rvm
 
 # Install Ruby with the rvm user
-ruby:
+gitlab_ruby:
   rvm.installed:
     - name: ruby-1.9.3
     - default: True
@@ -24,11 +17,11 @@ charlock_holmes:
     - version: "0.6.9"
     - runas: rvm
     - require:
-      - rvm: ruby
+      - rvm: gitlab_ruby
 
 bundler:
   gem.installed:
     - ruby: ruby-1.9.3
     - runas: rvm
     - require:
-      - rvm: ruby
+      - rvm: gitlab_ruby

@@ -15,16 +15,8 @@ git:
     - source: salt://gitlab/bash.env
     - user: git
 
-bundle install --deployment --without development test postgres:
-  cmd.run:
-    - user: git
-    - cwd: /home/git/gitlab
-    - require:
-      - user: git
-      - gem: bundler
-      - gem: charlock_holmes
 
-lab_shell_clone:
+gitlab_shellclone:
   git.latest:
     - name: https://github.com/gitlabhq/gitlab-shell.git
     - target: /home/git/gitlab-shell
@@ -32,13 +24,13 @@ lab_shell_clone:
     - require:
       - user: git
 
-lab_shell_config:
+gitlab_shellconfig:
   cmd.run:
     - name: cp config.yml.example config.yml
     - cwd: /home/git/gitlab-shell
     - user: git
     - require:
-      - git: lab_shell_clone
+      - git: gitlab_shellclone
 
 lab_shell_install:
   cmd.run:
@@ -46,9 +38,9 @@ lab_shell_install:
     - cwd: /home/git/gitlab-shell
     - user: git
     - require:
-      - cmd: lab_shell_config
+      - cmd: gitlab_shellconfig
 
-lab_clone:
+gitlab_clone:
   git.latest:
     - name: https://github.com/gitlabhq/gitlabhq.git
     - target: /home/git/gitlab
@@ -62,7 +54,7 @@ lab_clone:
     - source: salt://gitlab/config.yml
     - user: git
     - require:
-      - git: lab_clone
+      - git: gitlab_clone
 
 /home/git/gitlab-satellites:
   file.directory:
@@ -72,23 +64,31 @@ lab_clone:
     - require:
       - user: git
 
-/home/git/gitlab/tmp/pids:
+gitlab_config:
   file.directory:
+    - name: /home/git/gitlab/tmp/pids:
     - user: git
     - makedirs: True
     - require:
-      - user: git
-
-cp unicorn.rb.example unicorn.rb:
+      - git: gitlab_clone
   cmd.run:
+    - name: cp unicorn.rb.example unicorn.rb:
     - user: git
     - cwd: /home/git/gitlab/config
     - require:
-      - git: lab_clone
-
-cp database.yml.postgresql database.mysql:
+      - git: gitlab_clone
   cmd.run:
+    - name: cp database.yml.postgresql database.postgres:
     - user: git
     - cwd: /home/git/gitlab/config
     - require:
-      - git: lab_clone
+      - git: gitlab_clone
+
+bundle install --deployment --without development test postgres:
+  cmd.run:
+    - user: git
+    - cwd: /home/git/gitlab
+    - require:
+      - cmd: gitlab_config
+      - gem: bundler
+      - gem: charlock_holmes
