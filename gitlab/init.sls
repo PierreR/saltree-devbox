@@ -14,7 +14,7 @@ git:
       - user: rvm
       - rvm: ruby-1.9.3-p327
   file.managed:
-    - name: /home/git/.bash.env:
+    - name: /home/git/.bash.env
     - source: salt://gitlab/bash.env
     - user: git
 
