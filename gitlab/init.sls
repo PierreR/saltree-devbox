@@ -11,6 +11,8 @@ git:
   user.present:
     - fullname: GitLab
     - gid: git
+    - require:
+      group: git
   file.managed:
     - name: /home/git/.bash.env
     - source: salt://gitlab/bash.env
