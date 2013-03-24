@@ -15,6 +15,7 @@ common:
         - ttf-ubuntu-font-family
         - vim
         - xmobar
+        - xclip
         - xorg-xinit
         - xorg-xsetroot
         - xorg-server
