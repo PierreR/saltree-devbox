@@ -13,7 +13,7 @@ common:
         - sudo
         - ttf-bitstream-vera
         - ttf-ubuntu-font-family
-        - vim
+        - gvim
         - xmobar
         - xclip
         - xorg-xinit
