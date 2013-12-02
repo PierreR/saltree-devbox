@@ -12,7 +12,6 @@ common:
         - reflector
         - sudo
         - ttf-bitstream-vera
-        - ttf-ubuntu-font-family
         - gvim
         - xmobar
         - xclip
