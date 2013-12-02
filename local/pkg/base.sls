@@ -6,7 +6,7 @@ common:
         - aspell-fr
         - feh
         - git
-        - gnome-terminal
+        - lxterminal
         - htop
         - net-tools
         - reflector
